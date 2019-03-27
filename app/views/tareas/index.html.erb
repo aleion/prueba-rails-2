@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+
+<% @tareas.each do |tarea| %>
+<div class="card row col-md-4"  padding:10px;">
+  <div><%= image_tag tarea.image.url if tarea.image? %></div>
+  <div class="card-body">
+    <h5 class="card-title"><%= tarea.title %></h5>
+    <p class="card-text"><%= tarea.created_at %></p>
+    <a style="opacity: .4;"><i class="far fa-2x fa-check-circle"></i> </a>
+    </div>
+ </div> 
+<% end %> 
+
+
+<%= link_to 'Nueva tarea', new_tarea_path %>
