@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+  <div class="row">
+    <% @dones.each do |done| %>
+    <div class="card col-sm"  padding:10px;">
+      <div class="img-tagg"><%= image_tag done.tarea.image.url if done.tarea.image? %></div>
+      <div class="card-body">
+        <h5 class="card-title"><%= done.tarea.title %></h5>
+        <p class="card-text" style="font-size: 12px; opacity: .6;"><%= done.tarea.created_at %></p>
+        <% if done.complete == true%>
+        <button class="btn btn-danger"><%= link_to "No completar", done_path(done), :method => :put, :style => "color: white;"  %></button>
+        <i class="fas  btn fa-check-circle" style="color: green;"></i>
+        <% else %>
+        <button class="btn btn-primary"><%= link_to "Completar", done_path(done), :method => :put, :style => "color: white;" %></button>
+        <i class="far  btn fa-check-circle"><%= link_to "", done_path(done), :method => :put %></i>
+        <% end %>
+        </div>
+    </div> 
+    <% end %> 
+  <div>

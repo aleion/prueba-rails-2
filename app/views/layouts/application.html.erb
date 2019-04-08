@@ -15,22 +15,22 @@
   <body>
     <nav class="navbar navbar-default bg-light">
       <span class="navbar-text">
-        <h5>ToDo</h5>
+        <%= image_tag ("bandera.jpg")%> <h5>ToDo's Dieciochero</h5>
       </span>
       <span>
       <% if user_signed_in? %>
       <%= image_tag current_user.avatar.url(:thumb) if current_user.avatar?%>
       <a class="navbar-right navbar-btn">Hola <%= current_user.name %> </a>
-       <button class="btn-default navbar-right btn-sm ">
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+       <button class="btn btn-danger navbar-right btn-sm ">
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, :style => 'color: white')  %>        
       </button>
       </span>
       <% else %>
-       <button class="btn btn-default navbar-right btn-sm navbar-btn">
-      <%= link_to('Registrarse', new_user_registration_path)  %>  
+       <button class="btn btn-primary navbar-right btn-sm navbar-btn">
+      <%= link_to('Registrarse', new_user_registration_path, :style => 'color: white')  %>  
       </button>
-      <button class="btn btn-default navbar-right btn-sm navbar-btn">
-      <%= link_to('Login', new_user_session_path)  %>  
+      <button class="btn btn-primary navbar-right btn-sm navbar-btn">
+      <%= link_to('Login', new_user_session_path, :style => 'color: white')  %>  
       </button>
       <% end %>  
       

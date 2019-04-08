@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_214001) do
+ActiveRecord::Schema.define(version: 2019_03_27_214730) do
+
+  create_table "dones", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tarea_id"
+    t.boolean "complete", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tarea_id"], name: "index_dones_on_tarea_id"
+    t.index ["user_id"], name: "index_dones_on_user_id"
+  end
 
   create_table "tareas", force: :cascade do |t|
     t.string "title"
